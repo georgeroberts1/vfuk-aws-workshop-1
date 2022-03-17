@@ -4,7 +4,10 @@
   "description": "VFUK AWS workshop #1",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "zip -j deploy.zip ./src/*",
+    "update": "aws lambda update-function-code --function-name=vfuk-aws-workshop-1 --zip-file=fileb://deploy.zip",
+    "deploy": "npm run build && npm run update"
   },
   "repository": {
     "type": "git",
